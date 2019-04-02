@@ -1,0 +1,52 @@
+DROP DATABASE IF EXISTS RESERVATION; # 데이터베이스 삭제하여 초기화 처리하기
+CREATE DATABASE RESERVATION; # 데이터베이스 생성하기
+USE RESERVATION; # 데이터베이스에 접속하기
+
+DROP TABLE RESERVATION_USER;
+CREATE TABLE RESERVATION_USER (
+   userID VARCHAR(30) NOT NULL,
+   userPassword VARCHAR(64),
+   userResidentID VARCHAR(30),
+   userName VARCHAR(20),
+   userPhone VARCHAR(20),
+   userAddress VARCHAR(200),
+   userEmail VARCHAR(50),
+   userType INT, # (0: 관리자, 1: 일반 사용자)
+   PRIMARY KEY (userID)
+) ENGINE = InnoDB;
+
+INSERT INTO RESERVATION_USER VALUES("관리자", "123123", "9612221000000", "홍길동", "01000000000", "경기도 안양시 안양동 안양마을 101동 101호", "ndb796@naver.com", 0);
+INSERT INTO RESERVATION_USER VALUES("회원", "123123", "9612221000000", "김길동", "01000000000", "경기도 안양시 안양동 안양마을 101동 101호", "ndb796@naver.com", 1);
+
+DROP TABLE RESERVATION_BBS;
+CREATE TABLE RESERVATION_BBS (
+  bbsID INT,
+  bbsTitle VARCHAR(50),
+  userID VARCHAR(20),
+  bbsDate DATETIME,
+  bbsContent VARCHAR(2048),
+  bbsAvailable INT,
+  PRIMARY KEY (bbsID)
+) ENGINE = InnoDB;
+
+DROP TABLE RESERVATION_MOVIE;
+CREATE TABLE RESERVATION_MOVIE (
+  movieID INT,
+  movieTitle VARCHAR(50),
+  movieContent VARCHAR(2048),
+  movieGenre VARCHAR(50),
+  movieTime INT,
+  PRIMARY KEY (movieID)
+) ENGINE = InnoDB;
+
+INSERT INTO RESERVATION_MOVIE VALUES (1, '나의 밤 하늘', '세간을 울린 감성 코미디 영화', '멜로', '123');
+
+DROP TABLE RESERVATION_SEAT;
+CREATE TABLE RESERVATION_SEAT (
+  movieID INT,
+  userID VARCHAR(30),
+  seatID INT,
+  PRIMARY KEY (movieID, seatID)
+) ENGINE = InnoDB;
+
+INSERT INTO RESERVATION_SEAT VALUES (1, '회원', 5);

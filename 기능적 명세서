@@ -1,0 +1,86 @@
+[ 회원 로그인 ]
+
+Action: userLoginAction.reservation
+Method: POST
+Parameter: 아이디(userID), 비밀번호(userPassword)
+
+[ 회원 주민번호 인증 ]
+
+Action: userConfirmAction.reservation
+Method: POST
+Parameter: 이름(userName), 주민등록번호(userResidentID)
+
+[ 회원 회원가입 ]
+
+Action: userJoinAction.reservation
+Method: POST
+Parameter: 아이디(userID), 비밀번호(userPassword), 비밀번호 확인(userPasswordConfirm), 전화번호(userPhone), 주소(userAddress), 이메일(userEmail)
+(이름, 주민등록번호는 서버 측에서 자동으로 넘겨줍니다.)
+
+[ 회원 탈퇴 ]
+
+Action: userDeleteAction.reservation
+Method: POST
+Parameter: 아이디(userID)
+
+[ 회원 비밀번호 찾기 ]
+
+Action: userFindAction.reservation
+Method: POST
+Parameter: 아이디(userID), 이메일(userEmail)
+
+[ 회원 로그아웃 ] 
+
+Action: userLogoutAction.reservation
+Method: GET
+
+[ 회원 정보 수정 ]
+
+Action: userEditAction.reservation
+Method: POST
+Parameter: 비밀번호(userPassword), 비밀번호 확인(userPasswordConfirm), 전화번호(userPhone), 주소(userAddress), 이메일(userEmail)
+(아이디 서버 측에서 자동으로 넘겨줍니다.)
+
+[ 게시글 작성 ]
+
+Action: boardWriteAction.reservation
+Method: POST
+Parameter: 제목(bbsTitle), 내용(bbsContent)
+
+[ 게시글 수정 ]
+
+Action: boardEditAction.reservation
+Method: POST
+Parameter: 글 번호(bbsID), 제목(bbsTitle), 내용(bbsContent)
+
+[ 게시글 삭제 ]
+
+Action: boardDeleteAction.reservation
+Method: GET
+Parameter: 글 번호(bbsID)
+
+[ 영화 등록 ]
+
+Action: movieWriteAction.reservation
+Method: POST
+Parameter: 영화 제목(movieTitle), 영화 내용(movieContent), 영화 장르(movieGenre), 영화 러닝타임(movieTime)
+※ 영화 시간은 type을 number로 설정해서 숫자만 입력합니다.
+
+[ 영화 삭제 ]
+
+Action: movieDeleteAction.reservation
+Method: GET
+Parameter: 영화 번호(movieID)
+
+[ 영화 수정 ]
+
+Action: movieEditAction.reservation
+Method: POST
+Parameter: 영화 번호(movieID), 영화 제목(movieTitle), 영화 내용(movieContent), 영화 장르(movieGenre), 영화 러닝타임(movieTime)
+※ 영화 시간은 type을 number로 설정해서 숫자만 입력합니다.
+
+[ 좌석 등록 ]
+
+Action: payAction.reservation
+Method: POST
+Parameter: 영화 번호(movieID), 좌석 번호(seatID) 배열
